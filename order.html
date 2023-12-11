@@ -8,6 +8,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	
+    <!-- bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -58,12 +64,12 @@
 						<div class="col-sm-12 text-left menu-1">
                             <ul>
 								<li><a href="index.html">Home</a></li>
-								<li class="active"><a href="about.html">About Us</a></li>
+								<li><a href="about.html">About Us</a></li>
 								<li><a href="contact.html">Contact</a></li>
                                 <li><a href="collections.html">Collections</a></li>
 								<li><a href="faq.html">FAQ</a></li>
 								<li><a href="admin.html">Admin Portal</a></li>
-								<li class="cart"><a href="order.html"><i class="icon-shopping-cart"></i> Order Now</a></li>
+								<li class="cart active"><a href="order.html"><i class="icon-shopping-cart"></i> Order Now</a></li>
 							</ul>
 						</div>
 					</div>
@@ -424,6 +430,25 @@
                 </label>
 
                 <label>
+                    <span>Shoe Size <span class="required">*</span></span>
+                    <select name="selection">
+                      <option value="select">Select Shoe Size</option>
+                      <!-- <option value="AFG">Jordans</option>
+                      <option value="ALA">Kobes</option>
+                      <option value="ALB">Nike</option> -->
+                    </select>
+                  </label>
+
+                  <div class="qty mt-5">
+                    <label>Quantity</label>
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                </div>
+
+
+
+                <label>
                     <span class="lname">Enter Shoe Code <span class="required"></span></span>
                     <input type="text" name="lname">
                   </label> 
@@ -754,4 +779,22 @@
 
 	</body>
 </html>
+
+<script>
+    		$(document).ready(function(){
+		    $('.count').prop('disabled', true);
+   			$(document).on('click','.plus',function(){
+				$('.count').val(parseInt($('.count').val()) + 1 );
+     				if ($('.count').val() >= 100) {
+						$('.count').val(100); 
+            }
+    		});
+        	$(document).on('click','.minus',function(){
+    			$('.count').val(parseInt($('.count').val()) - 1 );
+    				if ($('.count').val() <= 0) {
+						$('.count').val(0);
+					}
+    	    	});
+ 		});
+</script>
 
